@@ -54,12 +54,19 @@ def render_experience(experiences):
 def render_notable_work(works):
     html = ''
     for work in works:
-        html += f'''
-        <div class="mb-4">
-          <h5>{work["name"]}</h5>
-          <p>{work["description"]}</p>
-        </div>
-        '''
+      link_html = f'<span class="h6"><a href="{work["link"]}" target="_blank">{work["link"]}</a></span>' if work.get(
+          "link") else ''
+        
+      html += f'''
+      <div class="mb-4">
+        <h5>{work["name"]} {link_html}</h5>
+        <p>{work["description"]}</p>
+         <ul>
+            {''.join(f"<li>{features}</li>" for features in work["features"])}
+          </ul>
+        
+      </div>
+      '''
     return html
 
 

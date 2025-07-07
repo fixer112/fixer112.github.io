@@ -170,7 +170,8 @@ html_template = f"""<!DOCTYPE html>
 </body>
 </html>
 """
-
+# <li><i class="fas fa-phone me-2"></i>{profile["phone"]}</li>
+# <li><i class="fas fa-map-marker-alt me-2"></i>{profile.get("location", "")}</li>
 # Write to file
 output_file = "index.html"
 Path(output_file).write_text(html_template, encoding="utf-8")
